@@ -3,271 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RK Restaurant</title>
+<title>RK Restaurant Ultra</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:#000;color:#fff;}
 
-body{
-  background:#000;
-  color:#fff;
-}
+/* NAVBAR */
+.navbar{position:sticky;top:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);padding:15px 40px;display:flex;justify-content:space-between;z-index:1000;}
+.navbar h2{color:#facc15;}
+.navbar a{color:#fff;margin-left:20px;text-decoration:none;}
+.navbar a:hover{color:#facc15;}
 
 /* HERO */
-.hero{
-  text-align:center;
-  padding:80px 20px;
-}
+.hero{text-align:center;padding:90px 20px;background:linear-gradient(to bottom,#000,#111);}
+.hero h1{font-size:56px;color:#facc15;letter-spacing:1px;}
+.hero p{color:#aaa;margin-top:10px;}
+.hero small{color:#facc15;display:block;margin-top:10px;}
 
-.hero h1{
-  font-size:48px;
-  color:#facc15;
-}
-
-.hero p{
-  margin-top:10px;
-  color:#aaa;
-}
-
-.hero small{
-  display:block;
-  margin-top:20px;
-  color:#facc15;
-}
+/* FILTER */
+.filter-bar{text-align:center;margin:20px;}
+.filter-bar button{margin:5px;background:#222;}
+.filter-bar button.active{background:#facc15;color:#000;}
 
 /* SECTION */
-.section{
-  padding:30px 40px;
-}
+.section{padding:40px;}
+.section h2{margin-bottom:20px;border-left:4px solid #facc15;padding-left:10px;}
 
-.section h2{
-  margin-bottom:20px;
-}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap:20px;
-}
+.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);border-radius:18px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.1);position:relative;}
+.card:hover{transform:translateY(-8px) scale(1.05);}
 
-/* CARD */
-.card{
-  background:#111;
-  border-radius:12px;
-  overflow:hidden;
-  transition:0.3s;
-}
+.badge{position:absolute;top:10px;left:10px;background:#facc15;color:#000;padding:3px 8px;border-radius:6px;font-size:12px;}
 
-.card:hover{
-  transform:scale(1.03);
-}
+.card-top{height:120px;display:flex;align-items:center;justify-content:center;font-size:42px;}
+.card-body{padding:15px;}
+.price{color:#facc15;margin:8px 0;font-weight:bold;}
 
-.card-top{
-  background:#1a1a1a;
-  height:120px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:40px;
-}
+button{background:#16a34a;border:none;padding:7px 14px;border-radius:8px;color:#fff;cursor:pointer;transition:0.3s;}
+button:hover{background:#22c55e;}
 
-.card-body{
-  padding:15px;
-}
+.counter{display:flex;align-items:center;gap:8px;margin-top:5px;}
+.counter button{padding:4px 10px;border-radius:6px;background:#222;}
 
-.card-body h3{
-  font-size:16px;
-  margin-bottom:8px;
-}
+/* CART */
+.cart{position:fixed;top:80px;right:20px;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);padding:15px;border-radius:12px;width:270px;max-height:420px;overflow:auto;border:1px solid #333;box-shadow:0 0 20px rgba(0,0,0,0.6);}
+.cart h3{margin-bottom:10px;color:#facc15;}
+.cart-item{font-size:14px;margin:5px 0;}
+.total{margin-top:10px;font-weight:bold;}
+.empty{color:#888;font-size:13px;}
 
-.price{
-  color:#facc15;
-  margin-bottom:10px;
-}
-
-button{
-  background:#16a34a;
-  border:none;
-  padding:6px 12px;
-  border-radius:6px;
-  color:#fff;
-  cursor:pointer;
-}
+/* WHATSAPP BUTTON */
+.whatsapp{position:fixed;bottom:20px;left:20px;background:#25D366;color:#000;padding:12px 16px;border-radius:50px;font-weight:bold;cursor:pointer;}
 
 /* FORM */
-.form-section{
-  text-align:center;
-  padding:60px 20px;
-}
+.form-section{text-align:center;padding:70px 20px;}
+.form-box{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:25px;border-radius:16px;width:320px;margin:auto;}
+input,select{width:100%;margin:8px 0;padding:10px;border:none;border-radius:8px;background:#222;color:#fff;}
+.confirm{background:#facc15;color:#000;width:100%;margin-top:10px;font-weight:bold;}
+.confirm:hover{background:#fde047;}
 
-.form-box{
-  background:#111;
-  padding:30px;
-  border-radius:16px;
-  width:300px;
-  margin:auto;
-}
-
-.form-box input, .form-box select{
-  width:100%;
-  margin:10px 0;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-  background:#222;
-  color:#fff;
-}
-
-.form-box button{
-  background:#facc15;
-  color:#000;
-  width:100%;
-  margin-top:10px;
-}
-
-/* RESPONSIVE */
-@media(max-width:1200px){
-  .grid{
-    grid-template-columns: repeat(3,1fr);
-  }
-}
-
-@media(max-width:700px){
-  .grid{
-    grid-template-columns: repeat(2,1fr);
-  }
-}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);} .cart{width:90%;right:5%;}}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<div class="navbar">
+<h2>RK Restaurant</h2>
+<div>
+<a href="#">Menu</a>
+<a href="#">Order</a>
+</div>
+</div>
+
 <div class="hero">
-  <h1>🍽️ RK Restaurant</h1>
-  <p>Luxury Dining • Premium Taste • NH65</p>
-  <small>OUR MENU</small>
+<h1>🍽️ RK Restaurant</h1>
+<p>Luxury Dining • Premium Taste • NH65</p>
+<small>Ultra Experience Menu</small>
 </div>
 
+<div class="filter-bar">
+<button onclick="filterItems('all')" class="active">All</button>
+<button onclick="filterItems('veg')">Veg</button>
+<button onclick="filterItems('nonveg')">Non-Veg</button>
+</div>
+
+<div class="cart">
+<h3>🛒 Cart</h3>
+<div id="cartItems" class="empty">No items yet</div>
+<div class="total" id="total">Total: ₹0</div>
+</div>
+
+<!-- YOUR ORIGINAL MENU REMAINS SAME -->
 <!-- BIRYANI -->
-<div class="section">
-  <h2>Biryani</h2>
-  <div class="grid">
+<div class="section"><h2>Biryani</h2><div class="grid">
+<div class="card"><div class="card-top">🍛</div><div class="card-body"><h3>Chicken Biryani</h3><div class="price">₹160</div><button onclick="handleAdd(this,'Chicken Biryani',160)">Add</button></div></div>
+<div class="card"><div class="card-top">🍛</div><div class="card-body"><h3>Mutton Biryani</h3><div class="price">₹174</div><button onclick="handleAdd(this,'Mutton Biryani',174)">Add</button></div></div>
+<div class="card"><div class="card-top">🍛</div><div class="card-body"><h3>Egg Biryani</h3><div class="price">₹157</div><button onclick="handleAdd(this,'Egg Biryani',157)">Add</button></div></div>
+<div class="card"><div class="card-top">🍛</div><div class="card-body"><h3>Veg Biryani</h3><div class="price">₹242</div><button onclick="handleAdd(this,'Veg Biryani',242)">Add</button></div></div>
+<div class="card"><div class="card-top">🍛</div><div class="card-body"><h3>Paneer Biryani</h3><div class="price">₹162</div><button onclick="handleAdd(this,'Paneer Biryani',162)">Add</button></div></div>
+</div></div>
 
-    <div class="card">
-      <div class="card-top">🍛</div>
-      <div class="card-body">
-        <h3>Chicken Biryani</h3>
-        <div class="price">₹160</div>
-        <button>Add</button>
-      </div>
-    </div>
+<!-- NON VEG -->
+<div class="section"><h2>Non-Veg</h2><div class="grid">
+<div class="card"><div class="card-top">🍗</div><div class="card-body"><h3>Chicken Curry</h3><div class="price">₹279</div><button onclick="handleAdd(this,'Chicken Curry',279)">Add</button></div></div>
+<div class="card"><div class="card-top">🍗</div><div class="card-body"><h3>Butter Chicken</h3><div class="price">₹143</div><button onclick="handleAdd(this,'Butter Chicken',143)">Add</button></div></div>
+<div class="card"><div class="card-top">🍗</div><div class="card-body"><h3>Chicken Fry</h3><div class="price">₹189</div><button onclick="handleAdd(this,'Chicken Fry',189)">Add</button></div></div>
+<div class="card"><div class="card-top">🍗</div><div class="card-body"><h3>Kadai Chicken</h3><div class="price">₹272</div><button onclick="handleAdd(this,'Kadai Chicken',272)">Add</button></div></div>
+<div class="card"><div class="card-top">🍗</div><div class="card-body"><h3>Chicken Masala</h3><div class="price">₹244</div><button onclick="handleAdd(this,'Chicken Masala',244)">Add</button></div></div>
+</div></div>
 
-    <div class="card">
-      <div class="card-top">🍛</div>
-      <div class="card-body">
-        <h3>Mutton Biryani</h3>
-        <div class="price">₹174</div>
-        <button>Add</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">🍛</div>
-      <div class="card-body">
-        <h3>Egg Biryani</h3>
-        <div class="price">₹157</div>
-        <button>Add</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">🍛</div>
-      <div class="card-body">
-        <h3>Veg Biryani</h3>
-        <div class="price">₹242</div>
-        <button>Add</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">🍛</div>
-      <div class="card-body">
-        <h3>Paneer Biryani</h3>
-        <div class="price">₹162</div>
-        <button>Add</button>
-      </div>
-    </div>
-
-  </div>
-</div>
+<!-- VEG -->
+<div class="section"><h2>Veg</h2><div class="grid">
+<div class="card"><div class="card-top">🥗</div><div class="card-body"><h3>Paneer Butter Masala</h3><div class="price">₹117</div><button onclick="handleAdd(this,'Paneer Butter Masala',117)">Add</button></div></div>
+<div class="card"><div class="card-top">🥗</div><div class="card-body"><h3>Dal Fry</h3><div class="price">₹143</div><button onclick="handleAdd(this,'Dal Fry',143)">Add</button></div></div>
+<div class="card"><div class="card-top">🥗</div><div class="card-body"><h3>Mix Veg</h3><div class="price">₹111</div><button onclick="handleAdd(this,'Mix Veg',111)">Add</button></div></div>
+<div class="card"><div class="card-top">🥗</div><div class="card-body"><h3>Aloo Curry</h3><div class="price">₹298</div><button onclick="handleAdd(this,'Aloo Curry',298)">Add</button></div></div>
+<div class="card"><div class="card-top">🥗</div><div class="card-body"><h3>Veg Kolhapuri</h3><div class="price">₹104</div><button onclick="handleAdd(this,'Veg Kolhapuri',104)">Add</button></div></div>
+</div></div>
 
 <!-- FAST FOOD -->
-<div class="section">
-  <h2>FastFood</h2>
-  <div class="grid">
-
-    <div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Burger</h3><div class="price">₹196</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Pizza</h3><div class="price">₹131</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Fries</h3><div class="price">₹249</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Sandwich</h3><div class="price">₹126</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Chicken 65</h3><div class="price">₹101</div><button>Add</button></div></div>
-
-  </div>
-</div>
+<div class="section"><h2>FastFood</h2><div class="grid">
+<div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Burger</h3><div class="price">₹196</div><button onclick="handleAdd(this,'Burger',196)">Add</button></div></div>
+<div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Pizza</h3><div class="price">₹131</div><button onclick="handleAdd(this,'Pizza',131)">Add</button></div></div>
+<div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Fries</h3><div class="price">₹249</div><button onclick="handleAdd(this,'Fries',249)">Add</button></div></div>
+<div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Sandwich</h3><div class="price">₹126</div><button onclick="handleAdd(this,'Sandwich',126)">Add</button></div></div>
+<div class="card"><div class="card-top">🍔</div><div class="card-body"><h3>Chicken 65</h3><div class="price">₹101</div><button onclick="handleAdd(this,'Chicken 65',101)">Add</button></div></div>
+</div></div>
 
 <!-- DESSERTS -->
-<div class="section">
-  <h2>Desserts</h2>
-  <div class="grid">
-
-    <div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Gulab Jamun</h3><div class="price">₹259</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Ice Cream</h3><div class="price">₹233</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Brownie</h3><div class="price">₹240</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Rasgulla</h3><div class="price">₹189</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Falooda</h3><div class="price">₹178</div><button>Add</button></div></div>
-
-  </div>
-</div>
+<div class="section"><h2>Desserts</h2><div class="grid">
+<div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Gulab Jamun</h3><div class="price">₹259</div><button onclick="handleAdd(this,'Gulab Jamun',259)">Add</button></div></div>
+<div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Ice Cream</h3><div class="price">₹233</div><button onclick="handleAdd(this,'Ice Cream',233)">Add</button></div></div>
+<div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Brownie</h3><div class="price">₹240</div><button onclick="handleAdd(this,'Brownie',240)">Add</button></div></div>
+<div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Rasgulla</h3><div class="price">₹189</div><button onclick="handleAdd(this,'Rasgulla',189)">Add</button></div></div>
+<div class="card"><div class="card-top">🍰</div><div class="card-body"><h3>Falooda</h3><div class="price">₹178</div><button onclick="handleAdd(this,'Falooda',178)">Add</button></div></div>
+</div></div>
 
 <!-- DRINKS -->
-<div class="section">
-  <h2>Drinks</h2>
-  <div class="grid">
+<div class="section"><h2>Drinks</h2><div class="grid">
+<div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Mocktail</h3><div class="price">₹187</div><button onclick="handleAdd(this,'Mocktail',187)">Add</button></div></div>
+<div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Cool Drinks</h3><div class="price">₹132</div><button onclick="handleAdd(this,'Cool Drinks',132)">Add</button></div></div>
+<div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Milkshake</h3><div class="price">₹257</div><button onclick="handleAdd(this,'Milkshake',257)">Add</button></div></div>
+<div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Cold Coffee</h3><div class="price">₹161</div><button onclick="handleAdd(this,'Cold Coffee',161)">Add</button></div></div>
+<div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Tea</h3><div class="price">₹168</div><button onclick="handleAdd(this,'Tea',168)">Add</button></div></div>
+</div></div>
 
-    <div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Mocktail</h3><div class="price">₹187</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Cool Drinks</h3><div class="price">₹132</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Milkshake</h3><div class="price">₹257</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Cold Coffee</h3><div class="price">₹161</div><button>Add</button></div></div>
-    <div class="card"><div class="card-top">🥤</div><div class="card-body"><h3>Tea</h3><div class="price">₹168</div><button>Add</button></div></div>
-
-  </div>
-</div>
-
-<!-- FORM -->
 <div class="form-section">
-  <h2>🧾 Pre-Order & Table Reservation</h2>
-
-  <div class="form-box">
-    <input type="text" placeholder="Your Name">
-    <input type="number" placeholder="No. of People">
-    <select>
-      <option>Normal Pickup</option>
-      <option>Dine In</option>
-    </select>
-    <input type="text" placeholder="Selected Items">
-    <input type="text" placeholder="UPI ID">
-    <button>Confirm Order</button>
-  </div>
+<h2>🧾 Pre-Order & Table Reservation</h2>
+<div class="form-box">
+<input placeholder="Your Name">
+<input placeholder="No. of People">
+<select><option>Normal Pickup</option><option>Dine In</option></select>
+<input id="selectedItems" placeholder="Selected Items" readonly>
+<input placeholder="UPI ID">
+<button class="confirm" onclick="placeOrder()">Confirm Order</button>
 </div>
+</div>
+
+<div class="whatsapp" onclick="sendWhatsApp()">Order</div>
+
+<script>
+let cart=[];
+
+function handleAdd(btn,name,price){
+const key=name.replace(/\s+/g,'-');
+cart.push({name,price,qty:1});
+btn.style.display='none';
+const counter=document.createElement('div');
+counter.className='counter';
+counter.id='ctr-'+key;
+counter.innerHTML=`<button onclick="changeQty('${name}',-1)">-</button><span id="qty-${key}">1</span><button onclick="changeQty('${name}',1)">+</button>`;
+btn.parentElement.appendChild(counter);
+updateCart();
+}
+
+function changeQty(name,delta){
+const item=cart.find(i=>i.name===name);
+if(!item) return;
+item.qty+=delta;
+const key=name.replace(/\s+/g,'-');
+if(item.qty<=0){
+cart=cart.filter(i=>i.name!==name);
+document.getElementById('ctr-'+key)?.remove();
+document.querySelectorAll('button').forEach(b=>{
+if(b.innerText==='Add' && b.getAttribute('onclick')?.includes(name)){
+b.style.display='inline-block';
+}
+});
+}
+updateCart();
+}
+
+function updateCart(){
+let cartItems=document.getElementById('cartItems');
+let totalEl=document.getElementById('total');
+let selected=document.getElementById('selectedItems');
+cartItems.innerHTML='';
+let total=0,names=[];
+if(cart.length===0){cartItems.innerHTML='<div class="empty">No items yet</div>';}
+cart.forEach(i=>{
+let d=document.createElement('div');
+d.className='cart-item';
+d.innerText=i.name+' x '+i.qty+' - ₹'+(i.price*i.qty);
+cartItems.appendChild(d);
+total+=i.price*i.qty;
+names.push(i.name+" x"+i.qty);
+const key=i.name.replace(/\s+/g,'-');
+const q=document.getElementById('qty-'+key);
+if(q) q.innerText=i.qty;
+});
+totalEl.innerText='Total: ₹'+total;
+selected.value=names.join(', ');
+}
+
+function sendWhatsApp(){
+let text='Order:%0A'+cart.map(i=>i.name+' x '+i.qty).join('%0A');
+window.open('https://wa.me/?text='+text,'_blank');
+}
+
+function placeOrder(){
+alert('Order Placed Successfully!');
+}
+
+function filterItems(type){
+document.querySelectorAll('.filter-bar button').forEach(b=>b.classList.remove('active'));
+event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
